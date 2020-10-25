@@ -4,7 +4,9 @@
   "description": "Cypress test framework for sauce demo website",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "test": "cypress open",
+    "chrome:test": "cypress run --browser chrome --spec cypress/integration/saucelabs/*.js",
+    "regression": "cypress run --browser chrome --spec cypress/integration/examples/*.js"
   },
   "keywords": [
     "Cypress",
@@ -18,5 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^5.4.0"
+  },
+  "devDependencies": {
+    "cypress-xpath": "^1.6.0"
   }
 }
