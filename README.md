@@ -1,4 +1,4 @@
-#cypress-sauce-demo-tests
+# cypress-sauce-demo-tests
 
 This repository contains UI automation tests using [Cypress](https://www.cypress.io/)
 
