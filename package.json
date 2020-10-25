@@ -1,0 +1,22 @@
+{
+  "name": "cypress-sauce-demo-tests",
+  "version": "1.0.0",
+  "description": "Cypress test framework for sauce demo website",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "keywords": [
+    "Cypress",
+    "UItests",
+    "Automation",
+    "NodeJs",
+    "Npm",
+    "Javascript"
+  ],
+  "author": "MaryaManjuInduri",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^5.4.0"
+  }
+}
