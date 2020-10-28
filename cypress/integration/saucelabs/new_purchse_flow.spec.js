@@ -1,26 +1,12 @@
 describe("sauce labs purchase flow end to end", function () {
-    beforeEach(() => {
-        cy.clearCookies();
-        cy.visit('/index.html');
-    })
 
     it("Should be able to complete the purchase flow", function () {
-        cy.fixture('user-details.json').then((usersData) =>{
 
-            cy.get('#user-name')
-                .should('be.visible')
-                .clear()
-                .type(usersData.standard_user.userName)
+        cy.fixture('user-details.json').then((usersData) => {
 
-            cy.get('#password')
-                .should('be.visible')
-                .clear()
-                .type(usersData.standard_user.password)
+            cy.login(usersData.standard_user.userName, usersData.standard_user.password)
+
         })
-
-        cy.get('#login-button')
-            .should('be.visible')
-            .click()
 
         cy.xpath('//button[contains(text(),\'Open Menu\')]')
             .should('be.visible')
@@ -32,7 +18,7 @@ describe("sauce labs purchase flow end to end", function () {
         // Validate the Add item in the bag
         cy.get('span[class=\'fa-layers-counter shopping_cart_badge\']')
             .should('be.visible')
-            .should('have.text',1)
+            .should('have.text', 1)
 
         cy.get('#shopping_cart_container')
             .click()
@@ -63,7 +49,6 @@ describe("sauce labs purchase flow end to end", function () {
 
         cy.get('img[class=\'pony_express\']')
             .should('be.visible')
-
     })
 
     afterEach(() => {

@@ -1,16 +1,38 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
+// Login
+Cypress.Commands.add("login", (email, password) => {
+    cy.clearCookies();
+    cy.visit('/index.html');
+
+    cy.get('#user-name')
+        .should('be.visible')
+        .clear()
+        .type(email);
+
+    cy.get('#password')
+        .should('be.visible')
+        .clear()
+        .type(password);
+
+    cy.get('#login-button')
+        .should('be.visible')
+        .click();
+})
+
+// Logout
+Cypress.Commands.add("logout", () => {
+
+    cy.xpath('//button[contains(text(),\'Open Menu\')]')
+        .should('be.visible')
+        .click()
+
+    cy.get('#logout_sidebar_link')
+        .should('be.visible')
+        .click()
+
+    cy.get('#user-name')
+        .should('be.visible');
+})
+
 //
 //
 // -- This is a child command --
