@@ -29,6 +29,11 @@ describe("sauce labs purchase flow end to end", function () {
         cy.xpath('//div[@class=\'inventory_list\']//div[1]//div[3]//button[1]')
             .click()
 
+        // Validate the Add item in the bag
+        cy.get('span[class=\'fa-layers-counter shopping_cart_badge\']')
+            .should('be.visible')
+            .should('have.text',1)
+
         cy.get('#shopping_cart_container')
             .click()
         cy.get('a[class=\'btn_action checkout_button\']')
@@ -60,7 +65,6 @@ describe("sauce labs purchase flow end to end", function () {
             .should('be.visible')
 
         // Logout
-
         cy.xpath('//button[contains(text(),\'Open Menu\')]')
             .should('be.visible')
             .click()

@@ -18,10 +18,9 @@
   ],
   "author": "MaryaManjuInduri",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^5.4.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "cypress": "^5.5.0",
     "cypress-xpath": "^1.6.0"
   }
 }
